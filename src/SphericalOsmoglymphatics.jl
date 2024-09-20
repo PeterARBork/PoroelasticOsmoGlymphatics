@@ -15,7 +15,6 @@ function calcpr(r, parameters; varargs...)
 end
 
 function calcQnumeric_cubicmeterpersec(; a, b, kappa, Ψ, η, γ, varargs...)
-    #integrand(r) = 4 * π * r^2 * kappa * (calcpr(r, params) - Ψ) / η
     integrand(r) = 4 * π * r^2 * γ^2 * kappa * (calcpr(r, params) - Ψ) / η
     integral, error = quadgk(integrand, a, b)
     println("integral= $integral with error = $error")
